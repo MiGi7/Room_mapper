@@ -15,7 +15,7 @@
 
         public:
 
-            PointMap(int map_size);
+            PointMap(Point offset);
 
             void addPointToMap(Point point);
 

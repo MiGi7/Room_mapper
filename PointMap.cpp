@@ -2,6 +2,7 @@
 #include <vector>
 #include "math.h"
 #include "PointMap.h"
+#include "Point.h"
 
 PointMap::PointMap(Point offset) {
     ++mapID;

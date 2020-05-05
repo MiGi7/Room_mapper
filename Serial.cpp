@@ -3,7 +3,7 @@
 #include <mutex>
 #include <iostream>
 
-//char device[] = "/dev/ttyS0";
+char device[] = "/dev/ttyS0";
 int serialRead = 1;
 int serialWrite = 1;
 
@@ -15,16 +15,19 @@ int read(int fd){
 }
 
 int write(){
-    for(int i = 0; i < 1000; ++i){
+    for(int i = 0; i < 100000; ++i){
         std::cout << "Writing: " << i << std::endl; 
     }
     return 0;
 }
 
 int main(){
-    int fd = serialOpen(device, 115200);
-    std::thread th1 (read, fd);
+    //int fd = serialOpen(device, 115200);
+    std::thread th1 (read, serialOpen(device, 115200));
     std::thread th2 (write);
+
+    th1.join();
+    th2.join();
 }
 
 

@@ -6,9 +6,11 @@
 char device[] = "/dev/ttyS0";
 int serialRead = 1;
 int serialWrite = 1;
+char c;
 
 int read(int fd){
     while(serialRead){
+       
         std::cout << serialGetchar(fd) << std::endl;
     }
     return 0;
